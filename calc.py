@@ -32,7 +32,7 @@ if __name__ == '__main__':
         print("3. Multiply")
         print("4. Divide")
         print("0. Exit")
-        choice = int(input("Enter your choice: "))
+        choice = 3
         if choice == 1:
             print("Result: ", obj.add())
         elif choice == 2:
