@@ -2,7 +2,7 @@ import unittest
 import sys
 sys.path.append(".")
 sys.path.insert(0, '..\\')
-from calculator.simplecalculator import Calculator
+from calc import Calculator
 
 class TestSimpleCalc(unittest.TestCase):
 
