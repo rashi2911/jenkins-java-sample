@@ -26,22 +26,22 @@ if __name__ == '__main__':
     obj = Calculator(a, b)
     choice = 1
 
-    while choice != 0:
-        print("1. Add")
-        print("2. Subtract")
-        print("3. Multiply")
-        print("4. Divide")
-        print("0. Exit")
-        choice = 3
-        if choice == 1:
-            print("Result: ", obj.add())
-        elif choice == 2:
-            print("Result: ", obj.sub())
-        elif choice == 3:
-            print("Result: ", obj.mul())
-        elif choice == 4:
-            print("Result: ", round(obj.div(), 2))
-        elif choice == 0:
-            print("Exiting!")
-        else:
-            print("Invalid choice!!")
+    # while choice != 0:
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("0. Exit")
+    choice = 3
+    if choice == 1:
+    print("Result: ", obj.add())
+    elif choice == 2:
+        print("Result: ", obj.sub())
+    elif choice == 3:
+        print("Result: ", obj.mul())
+    elif choice == 4:
+        print("Result: ", round(obj.div(), 2))
+    elif choice == 0:
+        print("Exiting!")
+    else:
+        print("Invalid choice!!")
