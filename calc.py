@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print("0. Exit")
     choice = 3
     if choice == 1:
-    print("Result: ", obj.add())
+        print("Result: ", obj.add())
     elif choice == 2:
         print("Result: ", obj.sub())
     elif choice == 3:
