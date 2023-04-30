@@ -110,8 +110,11 @@ nameserver 8.8.8.8
 5.	If the given Docker file do not work to install docker and Jenkins, try using this instead:
 
 FROM jenkins:jenkins:lts
+
 USER root
+
 RUN curl -sSL https://get.docker.com/ |sh
+
 USER jenkins
 
 6.	Sometimes the easiest way to debug an error you encounter like, unable to run a dockerfile or unable to start Jenkins on localhost, might simply be solved by either restarting your Virtual Machine, changing your internet connection or restarting docker service by using command: sudo systemctl start docker.
