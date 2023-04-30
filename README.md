@@ -17,12 +17,15 @@ The changes made in the production application in one virtual machine will be re
 
 ## Configuring Jenkins :
 STEP 1: Write Dockerfile to install docker along with Jenkins in the docker container.
- 
+ ![image](https://user-images.githubusercontent.com/107244393/235337523-acba790e-70f3-4c8b-8691-26a3cebe9a55.png)
+
 STEP 2: Navigate to the folder where your dockerfile is and then build the image using command: sudo docker build <image_name> .
  
 STEP 3: After successful build of the image, run the container on port 8083, using same docker engine as that of the host also use a created volume for data persistence on Jenkins
 -	sudo docker volume create <volume_name>
 -	sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v <volume_name>:jenkins_home -p 8083:8080 --name <container_name> <image_name>
+![image](https://user-images.githubusercontent.com/107244393/235337545-5bff5afe-bedf-4a70-9ffe-e6892a82e52a.png)
+
  
 STEP 4: Open your web browser and enter localhost:8083. It will prompt for AdminPassword. Use the password displayed after running the container. If the password is not visible then use command: sudo docker container exec <container_name> sh -c “cat /var/jenkins_home/secrets/initialAdminPassword”.
  
@@ -47,11 +50,11 @@ STEP 11: Navigate to terminal.
 -	apt-get install python3
 -	apt-get install python3-pip
 -	docker login
+
  
 After entering docker login command, you will be prompted for username and password (Password will not be the access token but the general password that you enter to login to your account). Enter that.
 STEP 12: Configure the created job:
 •	General: Select Github project and enter your project repository url.
- 
 •	Source Code Management: Select Git and enter project’s url.
 •	Build Triggers: Select Poll SCM. Enter ‘* * * * * *’ in the Schedule section. This will make sure that Jenkins automatically triggers a build after successful commit of code in Git.
 •	Build Steps: Select Execute Shell. Type:
@@ -59,6 +62,8 @@ python3 -m pip install -r requirements.txt
 python3 calc.py
 pytest mytests --junitxml=./xmlReport/output.xml
 (Here mytests refer to the folder where my test case python files are stored and a xml report file will be generated named output.xml)
+![image](https://user-images.githubusercontent.com/107244393/235337592-916f8b70-9922-47c2-b3e0-c25c02b63e07.png)
+
  
 Click on Add Build Step. Select Docker Build and Publish.
 •	In repository name: <docker_hub_username>/<image_name_you_want_to_push>
@@ -66,11 +71,17 @@ Click on Add Build Step. Select Docker Build and Publish.
 Click on Save.
 
 STEP 13: Click on build now.
+![image](https://user-images.githubusercontent.com/107244393/235337609-aaf72771-dd48-4d2f-8004-c64bb957ca20.png)
+![image](https://user-images.githubusercontent.com/107244393/235337611-2ad8a872-7469-45a6-98c9-83bc36f28e26.png)
+![image](https://user-images.githubusercontent.com/107244393/235337617-8e119753-4dff-4a16-a9ba-d05cb6e407d4.png)
+
   
 STEP 14: You will see that the build is successful, all image is pushed to Docker Hub which can be used by production.
+![image](https://user-images.githubusercontent.com/107244393/235337620-8e59020a-371b-45fa-aa7e-82f5534e1553.png)
 
 STEP 15: In Status section: you can see the test report and test status.
- 
+ ![image](https://user-images.githubusercontent.com/107244393/235337623-ebb1350d-89ce-48c7-8a49-41008d0fc806.png)
+
 STEP 16: You can also try pushing a code change in github repository and you will see that the Jenkins build is automatically triggered and the docker image is rebuilt and updated in DockerHub.
 
 ## ISSUES YOU MAY ENCOUNTER:
