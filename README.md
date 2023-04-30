@@ -9,11 +9,12 @@ We have two virtual machines one for development purpose and the other for deplo
 - Docker
 
 ## Purpose:
-The changes made in the production application in one virtual machine will be reflected onto Jenkins (on another machine) with each git push. Jenkins will then re-build the image each time any changes are made to the application, then that image will be pushed to Docker hub.
+The changes made in the production application in one virtual machine's container will be reflected onto Jenkins (on another machine's container) with each git push. Jenkins will then re-build the image each time any changes are made to the application, then that image will be pushed to Docker hub.
 
 ## Files:
 - calc.py: This file is hardcoded to select choice 1 and the inputs are harcoded too. It is used to perform operations like: addition, subtraction, multiplication and division.
 - mytest folder: it contains the test case python file. To make sure the tests run on Jenkins, the test python file should have prefix ‘test_’, else you might encounter build failure in running the test cases.
+- devcontainer folder: It contains a json file specifying image configuration for the container in VSCode which contains the application.
 
 ## Configuring Jenkins :
 STEP 1: Write Dockerfile to install docker along with Jenkins in the docker container.
