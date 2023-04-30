@@ -67,6 +67,7 @@ pytest mytests --junitxml=./xmlReport/output.xml
  
 Click on Add Build Step. Select Docker Build and Publish.
 •	In repository name: <docker_hub_username>/<image_name_you_want_to_push>
+
 •	Post Build Actions: Select Publish Junit test result report. In the Test report XMLs: xmlReport/output.xml.
 Click on Save.
 
