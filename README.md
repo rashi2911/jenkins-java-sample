@@ -59,8 +59,11 @@ STEP 12: Configure the created job:
 •	Source Code Management: Select Git and enter project’s url.
 •	Build Triggers: Select Poll SCM. Enter ‘* * * * * *’ in the Schedule section. This will make sure that Jenkins automatically triggers a build after successful commit of code in Git.
 •	Build Steps: Select Execute Shell. Type:
+
 python3 -m pip install -r requirements.txt
+
 python3 calc.py
+
 pytest mytests --junitxml=./xmlReport/output.xml
 (Here mytests refer to the folder where my test case python files are stored and a xml report file will be generated named output.xml)
 ![image](https://user-images.githubusercontent.com/107244393/235337592-916f8b70-9922-47c2-b3e0-c25c02b63e07.png)
